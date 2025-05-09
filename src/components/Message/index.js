@@ -7,8 +7,4 @@ const Message = props => {
   return <h1 className="msg-heading">{msg}</h1>
 }
 
-Message.defaultProps = {
-  msg: 'Please Login',
-}
-
 export default Message

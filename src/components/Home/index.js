@@ -1,6 +1,8 @@
 // Write your code here
 import {Component} from 'react'
+
 import './index.css'
+
 import Message from '../Message'
 import Login from '../Login'
 import Logout from '../Logout'
@@ -14,27 +16,22 @@ class Home extends Component {
 
   render() {
     const {isUserLoggedIn} = this.state
-    let logButtonText
+    let logButton
     let msgText
 
     if (isUserLoggedIn) {
-      logButtonText = <Logout />
+      logButton = <Logout logout={this.onClickButton} />
       msgText = 'Welcome User'
     } else {
-      logButtonText = <Login />
+      logButton = <Login login={this.onClickButton} />
+      msgText = 'Please Login'
     }
 
     return (
       <div className="home-bg">
         <div className="card">
           <Message msg={msgText} />
-          <button
-            onClick={this.onClickButton}
-            type="button"
-            className="button-style"
-          >
-            {logButtonText}
-          </button>
+          {logButton}
         </div>
       </div>
     )
